@@ -1,0 +1,208 @@
+- to run python container through docker run the below command:
+	- winpty docker run -it python:3.9 
+	
+-----------------------------------------------------------------
+
+
+- to install pandas library inside python container:
+	- you need to run the entrypoint of container with bash not python promopt
+		1 - winpty docker run -it --entrypoint=bash python:3.9
+		2 - pip install pandas
+
+---------------------------------------------------------------------------
+
+- it you need to write docker file to write some instructions to build with it the container
+ - you can create docker file and write all you need
+ - build the docker container using the below command
+	- docker build -t 'image_name' directory_has_dockerfile
+	
+ - after build the docker image how to run it, using the below command
+	- docker run -it 'image_name'
+	
+
+
+services:
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
+    volumes:
+      - postgres-db-volume:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "airflow"]
+      interval: 5s
+      retries: 5
+    restart: always
+
+
+# command to run docker container has postgres database locally 
+
+# image need to be configured so we need enter the configuration through -e
+
+# -v refer to mapping so we all know docker container does not keep the state, so we need to keep data mapped from our host machine to file system
+
+# -p refer to mapping between port for host machine and docker container
+docker run -it \
+-e  POSTGRES_USER="root" \
+-e  POSTGRES_PASSWORD="root" \
+-e  POSTGRES_DB="ny_taxi" \
+-v $(pwd)/ny_taxi_postgres_data:/var/lib/postgresql/data \
+-p 5432:5432 \
+postgres:13
+
+
+winpty docker run -it \
+-e  POSTGRES_USER="root" \
+-e  POSTGRES_PASSWORD="root" \
+-e  POSTGRES_DB="ny_taxi" \
+-v D:\Data_Engineering_Zoomcamp_2024\data-engineering-zoomcamp\cohorts\2024\01-docker-terraform\2_docker_sql\ny_taxi_postgres_data:/var/lib/postgresql/data \
+-p 5432:5432 \
+postgres:13
+
+winpty docker run -it \
+  -e POSTGRES_USER="root" \
+  -e POSTGRES_PASSWORD="root" \
+  -e POSTGRES_DB="ny_taxi" \
+  -v $(pwd)/ny_taxi_postgres_data:/var/lib/postgresql/data \
+  -p 5432:5432 \
+  postgres:13
+
+## run postgres db container from powershell
+docker run -it -e  POSTGRES_USER="root" -e  POSTGRES_PASSWORD="root" -e  POSTGRES_DB="ny_taxi" -v  D:/Data_Engineering_Zoomcamp_2024/data-engineering-zoomcamp/cohorts/2024/01-docker-terraform/2_docker_sql/ny_taxi_postgres_data/:/var/lib/postgresql/data -p 5432:5432 postgres:13
+
+
+# how to use pgcli (user interface for postgres database)
+# -h : host
+# -p : port
+# -U : user 
+# -d: database name
+pgcli -h localhost -p 5432 -U root -d ny_taxi
+
+
+# use anaconda python 
+source c/Users/Abdol/anaconda3/Scripts/activate
+# create environment
+ conda create --name zoomcamp_data_2024
+ # activate conda environment
+ conda activate zoomcamp_data_2024
+
+
+#python use library called sqlalchemy to deal with sql
+
+# to run docker container of PgAdmin to deal with postgres database using GUI
+
+winpty docker run -it \
+-e PGADMIN_DEFAULT_EMAIL="admin@admin.com" \
+-e PGADMIN_DEFAULT_PASSWORD="root" \
+-p 8080:80 \
+  dpage/pgadmin4
+
+
+# Network: make 2 docker containers in same newtork to be able to see each other
+
+docker network create pg-network
+
+docker run -it -e  POSTGRES_USER="root" -e  POSTGRES_PASSWORD="root" -e  POSTGRES_DB="ny_taxi" -v  D:/Data_Engineering_Zoomcamp_2024/data-engineering-zoomcamp/cohorts/2024/01-docker-terraform/2_docker_sql/ny_taxi_postgres_data/:/var/lib/postgresql/data -p 5432:5432 --network=pg-network --name pg-database postgres:13
+
+winpty docker run -it \
+-e PGADMIN_DEFAULT_EMAIL="admin@admin.com" \
+-e PGADMIN_DEFAULT_PASSWORD="root" \
+-p 8080:80 \
+--network=pg-network \
+--name pgadmin \
+  dpage/pgadmin4
+
+
+  # to convert jupyter notebook you can use the below command
+
+  jupyter nbconvert --to={1} {2}
+  {1} => type of which you need convert to
+  {2} => name of jupyter notebook
+
+
+  # to run ingest_data script 
+
+  python ingest_data.py \
+    --user=root \
+    --password=root \
+    --host=localhost \
+    --port=5432 \
+    --db_name=ny_taxi \
+    --table_name=yellow_taxi_data \
+    --url="https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_2021-01.csv.gz"
+
+
+    
+    note: localhost of the container it's container itself
+
+
+# dockerizing pipelines 
+# requirments:
+  - need to build docker container which run the pipeline to ingest data into postgres
+  - so instead of run the command of python script locally you can docerzie it
+
+# to build the docker image
+docker build -t 'taxi_ingest:v001' .
+
+winpty docker run -it \
+  --network=pg-network \
+  taxi_ingest:v001 \
+    --user=root \
+    --password=root \
+    --host=pg-database \
+    --port=5432 \
+    --db_name=ny_taxi \
+    --table_name=yellow_taxi_trips \
+    --url="http://172.24.208.1:8000/yellow_tripdata_2021-01.csv"
+
+  q- why should need --network inside docker build?
+  a- cause we need the docker continer which run the pipeline to be in same network of postgre network
+
+  q- why should change host value from localhost to be pg-database?
+  a- because localhost of container it's continer itself and continer itself has no postgres database so we need to connect to another host in same netwrok 
+
+  # command to run http server on dir on your localhost
+  python -m http.server 
+
+
+  # Docker compose: tool for defining and running multi-container applications
+  # Compose control your stack of your app by managing services and its volumnes mapping in one yaml configuration file
+  # now in docker compose, we won't manage network because compose will create the containers in same network
+
+
+  # to run docker compose 
+  docker-compose up 
+
+
+  # to stop docker compose 
+  docker-compose down
+
+  http://172.24.208.1:8000/taxi_zone_lookup.csv
+
+  winpty docker run -it \
+  --network=2_docker_sql_default \
+  zone_lookup_ingest:v001 \
+    --user=root \
+    --password=root \
+    --host=pgdatabase \
+    --port=5432 \
+    --db_name=ny_taxi \
+    --table_name=zones \
+    --url="http://172.24.208.1:8000/taxi_zone_lookup.csv"
+
+
+    
+
+
+  winpty docker run -it \
+  --network=2_docker_sql_default \
+  green_tripdata_2019_ingest:v001 \
+    --user=root \
+    --password=root \
+    --host=pgdatabase \
+    --port=5432 \
+    --db_name=ny_taxi \
+    --table_name=yellow_taxi_trips_2019 \
+    --url="http://172.24.208.1:8000/green_tripdata_2019-09.csv"
