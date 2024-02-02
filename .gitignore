@@ -42,3 +42,6 @@ terraform.rc
 
 
 01-docker-terraform/2_docker_sql/ny_taxi_postgres_data/
+
+02-workflow-orchestration/terraform-deploy-to-gcp/my-creds.json
+02-workflow-orchestration/Slides/*
