@@ -1,3 +1,5 @@
+
+mage_url -> http://localhost:6789/
 Q - Mage Parameterized Execution?
 A - pipelines depend on variables or parameters to execute
     for example: if execution date in JAN load to bigquery Located in ASIA
