@@ -1,0 +1,14 @@
+{
+    "type": "service_account",
+    "project_id": "primeval-legacy-412013",
+    "private_key_id": "cc21252de9fd22fee2a8d20f67f8d38de18698d8",
+    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQCpx5WeK4t1vott\ncMm0zlne5LO6HkHzbOZAxy1ShcUl4fxbV/+t8jG+IyLC/oGKgvoLXDaYVdv13/uY\n5NhdgBH37wgisrPdh+ObQRx9cMgSrwrJcJ2ZdlV8safJKjXwUGWdv/5tYgHxHq43\nDRlCxCoSXMqS2Sz7BkRnMi9cNSC1br5rnYFQZQrG8iA6HzFBxYcNgStwL6dNiPYo\n/TdyW4at4cPc/eHsE69+C2pWV4CwYJaPJosiEkoSgsmvOmtUzp+ZyAs+tJVgbIsK\nz0eRJYlGKb6bwOtynjy6Og8WCNBBJgB8b2jVhRhiQNlb35VWYjRx+S+MT4RHjQNk\nLihtxW4NAgMBAAECggEAU6B8gPlf6zJdCR4qLIYL3G94W6+1uoqka7nwCBrd/gfv\nPqr8xJhsigRShgvIkQps0ZWtSqHYA6c9DZWDQaLotuAleLnfQLpDkWCkAOHBmvpf\nbNOsvT99Yjs7sym4gdOICgjc8NH6tOLw2yr3i1yGgJ72JRkWP9tZbB9bFqcQomzJ\nYIhY9b7A803uJQkR2yheFYbRkGUSYGHlii3ZmlJLthe9B7WCFcT3CuSy2+l1DUbK\nyvocQERg7RX4SnxNVYejv/YtIaDSxW/iFRy+xX6lLgv9CTOkWMqwB2cSkYcbXdMK\n0fW7SId4YM8Lki73P/zZEvXHFtg1cTay5Pruoiv3XQKBgQDdGB2dLfA8m3n9V/eP\nGg1dXcchjPqfTC2foFkfwmogQqZSccEWolljY+qrqSSnR6D/VC3mwM6wmQvYALWh\nPKv4w8BGFKLRTfT4izAcpJFOFqtRFjjCobR/DGv6peOAdWn6MSvChm9DHFoede2C\nu3fmhT4IFVewi0QGuFo7dVvdBwKBgQDElYGTj7cS6OMMwgsHiwN/1bS7hJvXoGHV\nZzAIjgaO2ksYuujYTK1re87nzG8OjXmi7/l/LPVVTzBOK38a06ITFKo5D2hq9OO6\n95n/fNZBCFsvREqVcVYIDJR3Sw7aj9VNLPEuDQT3SL6z2KhxmnJTUaNe4IzwfNVK\nQ7ANQQirSwKBgQDJwcD8dzhcRlEbFFQvvUlm4zXdcwYdqemUWkIaTlKEH+4hG/dl\nDT/fCAXVImP1VtMfTRUaFuZGl1MMiRE2EuSn/RIPobM2pxoeWP3NlYuXo+4v78Ra\nMDBDI/XBY/Jofjz4eDiDqiQMLOo8E8dq3mI69Wo2/CrqSxwHueF1ktICrwKBgQC5\nUUtOpPtrmxl3THGDUdwhpX90CqWzFuFDgLv6RJEQF98VWBXq2hXdrmA1ijXjXSEe\npeToq6Q3IKij+EMhMgKmxCNYGRtRQLxx47pL7A46TjtPiqxYxvfYLKvE7X/6L/9f\neo993w4gY3ZLKmJYfcVqoBpHdZ3Hk5aqJLcRN46JkwKBgQCtPE3cQM8QNnUjkPRe\n7DO9SgG0qy5YkaZ9TpVMLUaJG0bOOOSR4PGAzKaNeIbG6P/FB4dHQeCBY0K50zDP\nc8t3qqfW8gkQutci4A2QmUWPLLNTitPl12riFvOA/Wz5ZBF5tP7+oEmCbpHx87Py\n4sXMm3Cb0sTzHtDLcJ0azG3/wg==\n-----END PRIVATE KEY-----\n",
+    "client_email": "terraform-runner@primeval-legacy-412013.iam.gserviceaccount.com",
+    "client_id": "111357976488423832865",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/terraform-runner%40primeval-legacy-412013.iam.gserviceaccount.com",
+    "universe_domain": "googleapis.com"
+  }
+  

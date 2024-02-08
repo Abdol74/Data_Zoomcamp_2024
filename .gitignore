@@ -45,3 +45,5 @@ terraform.rc
 
 02-workflow-orchestration/terraform-deploy-to-gcp/my-creds.json
 02-workflow-orchestration/Slides/*
+
+03-data-warehouse/slides/*
