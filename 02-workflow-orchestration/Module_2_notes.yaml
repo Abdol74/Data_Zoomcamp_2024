@@ -1,0 +1,14 @@
+
+mage_url -> http://localhost:6789/
+Q - Mage Parameterized Execution?
+A - pipelines depend on variables or parameters to execute
+    for example: if execution date in JAN load to bigquery Located in ASIA
+                 if execution date in FEB load to bigquery Located IN US
+
+
+Q - Google cloud permissions to deploy mage on Google cloud?
+  1 - Atrifcat registery reader
+  2 - Artifact registery writer
+  3 - Cloud run developer
+  4 - cloud sql admin
+  5 - service account token creator
