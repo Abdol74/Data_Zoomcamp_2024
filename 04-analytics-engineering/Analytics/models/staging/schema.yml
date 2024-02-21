@@ -9,6 +9,7 @@ sources:
     tables:
       - name: green_tripdata
       - name: yellow_tripdata
+      - name: fhv_tripdata_1
 
 models:
   - name: stg_green_tripdata
@@ -225,6 +226,12 @@ models:
       - name: payment_type
         data_type: int64
         description: ""
+        tests:
+          - accepted_values:
+              values: "{{var('payment_type_values')}}"
+              config:
+                severity: warn
+              quote: false
 
       - name: payment_type_description
         data_type: string
