@@ -1,0 +1,41 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: extract fhv data from api
+  retry_config: null
+  status: failed
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: extract_fhv_data_from_api
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2024-02-18 22:34:02.556633+00:00'
+data_integration: null
+description: null
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: load fhv data - Year 2019 for dbt module
+notification_config: {}
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+tags: []
+type: python
+updated_at: '2024-02-20 21:01:01'
+uuid: load_fhv_data___year_2019_for_dbt_module
+variables_dir: /home/src/mage_data/magic-zoomcamp
+widgets: []
