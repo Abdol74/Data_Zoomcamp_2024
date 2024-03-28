@@ -1,0 +1,3 @@
+[submodule "06-streaming"]
+	path = 06-streaming
+	url = https://github.com/DataTalksClub/data-engineering-zoomcamp.git
