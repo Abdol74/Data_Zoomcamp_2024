@@ -47,3 +47,4 @@ terraform.rc
 02-workflow-orchestration/Slides/*
 
 03-data-warehouse/slides/*
+06-streaming/homework/green_tripdata_2019-10.csv.gz
